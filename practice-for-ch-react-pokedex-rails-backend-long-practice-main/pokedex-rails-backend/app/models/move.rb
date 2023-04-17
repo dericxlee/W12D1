@@ -8,11 +8,11 @@
 #  updated_at :datetime         not null
 #
 class Move < ApplicationRecord
-    validates :name, presence: true, uniqueness: { message: "'%{value}' is already in use" }
+    validates :name, presence: true, uniqueness: { message: "'%{value}' is taken" }
 
     has_many :poke_moves,
     foreign_key: :move_id,
-    class_name: :Poke_move
+    class_name: :PokeMove
 
     has_many :pokemons,
     through: :poke_moves,
